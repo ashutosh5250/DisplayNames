@@ -1,58 +1,49 @@
-import "./App.css";
 import React, { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    full_name: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormData({
-      ...formData,
-      full_name: `${formData.first_name} ${formData.last_name}`,
-    });
+    if (firstName && lastName) {
+      setFullName(`${firstName} ${lastName}`);
+      setIsSubmitted(true);
+    } else {
+      alert("Please enter both first and last name.");
+    }
   };
 
   return (
-    <div>
+    <div className="App">
       <h1>Full Name Display</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="first_name">
-          First Name:{" "}
-          <input
-            id="first_name"
-            name="first_name"
-            type="text"
-            value={formData.first_name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label htmlFor="last_name">
-          Last Name:{" "}
-          <input
-            id="last_name"
-            name="last_name"
-            type="text"
-            value={formData.last_name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
+        <label htmlFor="firstName">First Name:</label>
+        <input
+          type="text"
+          id="firstName"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
         <button type="submit">Submit</button>
       </form>
-      <br />
-      {formData.first_name && formData.last_name && formData.full_name && (
-        <label>Full Name: {formData.full_name}</label>
+      {isSubmitted && (
+        <div>
+          <h2>Full Name:</h2>
+          <p>{fullName}</p>
+        </div>
       )}
     </div>
   );

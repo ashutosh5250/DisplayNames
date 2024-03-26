@@ -1,3 +1,36 @@
-h1{
-  font-family: 'Times New Roman', Times, serif;
+.App {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  margin-top: 10px;
+  font-weight: bold;
 }
