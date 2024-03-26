@@ -51,7 +51,9 @@ function App() {
         <button type="submit">Submit</button>
       </form>
       <br />
-      {formData.full_name && <label>Full Name: {formData.full_name}</label>}
+      {formData.first_name && formData.last_name && formData.full_name && (
+        <label>Full Name: {formData.full_name}</label>
+      )}
     </div>
   );
 }
