@@ -41,8 +41,7 @@ function App() {
       </form>
       {submit && (
         <div>
-          <h2>Full Name:</h2>
-          <p>{fullName}</p>
+          <h2>Full Name: {fullName}</h2>
         </div>
       )}
     </div>
