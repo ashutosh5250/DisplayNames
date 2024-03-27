@@ -6,10 +6,11 @@ function App() {
   const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
   const [submit, setSubmit] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (firstName && lastName) {
-      setFullName(`${firstName} ${lastName}`);
+    if (firstName.trim() && lastName.trim()) {
+      setFullName(`${firstName.trim()} ${lastName.trim()}`);
       setSubmit(true);
     } else {
       alert("Please enter both first and last name.");
@@ -38,7 +39,7 @@ function App() {
         />
         <button type="submit">Submit</button>
       </form>
-      {firstName && lastName && submit && (
+      {submit && (
         <div>
           <h2>Full Name:</h2>
           <p>{fullName}</p>
